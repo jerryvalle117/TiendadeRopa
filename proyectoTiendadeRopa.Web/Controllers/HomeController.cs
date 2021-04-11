@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TiendadeRopa.BL;
 
 namespace proyectoTiendadeRopa.Web.Controllers
 {
@@ -11,7 +12,10 @@ namespace proyectoTiendadeRopa.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var productosBL = new ProductosBL();
+            var listadeProductos = productosBL.ObtenerProductos();
+
+            return View(listadeProductos);
         }
     }
-}
+    }
